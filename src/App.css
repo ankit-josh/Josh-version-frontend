@@ -1,0 +1,146 @@
+.main-heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.image-upload-box {
+  width: 100%;
+  height: 400px;
+  background-color: #363636;
+  border-radius: 16px;
+}
+
+.image-upload-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-camera {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background-color: #E12E2B;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+  background-color: rgba(0, 0, 0, 0.33);
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 16px 56px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.161);
+}
+
+.btn:focus-visible {
+  outline: none;
+}
+.btn:focus {
+  box-shadow: unset;
+}
+
+.btn:active:focus{
+  box-shadow: unset;
+}
+
+.btn-default, .btn-default:hover, .btn-default:focus {
+  background-color: #29B3B9;
+  color: #FFFFFF;
+}
+
+.camera-page-btns .btn-default {
+  padding: 16px 64px;
+}
+
+.back-arrow i {
+  color: #ffffff;
+  font-size: 32px;
+}
+
+.img-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+}
+
+.img-box img{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* loader */
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+  z-index: 2;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+.spinner .path {
+  stroke: #93bfec;
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
