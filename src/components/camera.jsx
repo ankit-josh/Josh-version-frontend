@@ -12,7 +12,7 @@ export function Camera() {
   const [finalImage, setFinalImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [nextClicked, setNextClicked] = useState(false);
-  const [text,setText]=useState("")
+  const [text, setText] = useState("")
 
   useEffect(() => {
     console.log("update");
@@ -84,10 +84,9 @@ export function Camera() {
           "Content-Type": "application/json",
         },
       });
-      if(response.data.output.length>0 && response.data.status ==="success"){
+      if (response.data.output.length > 0 && response.data.status === "success") {
         setFinalImage(response.data.output[0]);
-      }else
-      {
+      } else {
         alert(response.data.status);
       }
       setLoading(false);
@@ -99,39 +98,37 @@ export function Camera() {
   };
   return (
     <>
-    {!nextClicked && 
-    <>
-    <div className="page-top-section flex-1">
-        <div className="image-upload-box d-flex align-items-center justify-content-center border mb-5 mx-auto">
-          
-          {url &&(
-            <img
-              src={url}
-              alt="pic"
-              style={{ height: "400px", width: "400px" }}
-            />
-          )}
-        </div>
-        {/* <button className="btn-camera d-block mb-4 mx-auto border-0"></button> */}
-      </div>
-      <div className="camera-page-btns">
-        <label className="custom-file-upload mb-4 fw-bold">
-        
-          <input type="file" onChange={handleFileUpload} />
-          {text==="success"?"Change photo":"Upload a photo"}
-        </label>
-        <button
-          className="btn btn-default text-uppercase d-block m-auto"
-          onClick={uploadPic}
-        >
-          Next
-        </button>
-      </div>
-      </>
+      {!nextClicked &&
+        <>
+          <div className="page-top-section flex-1">
+            <div className="image-upload-box d-flex align-items-center justify-content-center border mb-5 mx-auto overflow-hidden">
+
+              {url && (
+                <img
+                  src={url}
+                  alt="pic"
+                  style={{ height: "400px", width: "400px" }}
+                />
+              )}
+            </div>
+            {/* <button className="btn-camera d-block mb-4 mx-auto border-0"></button> */}
+          </div>
+          <div className="camera-page-btns">
+            <label className="custom-file-upload mb-4 fw-bold">
+
+              <input type="file" onChange={handleFileUpload} />
+              {text === "success" ? "Change photo" : "Upload a photo"}
+            </label>
+            <button
+              className="btn btn-default text-uppercase d-block m-auto"
+              onClick={uploadPic}
+            >
+              Next
+            </button>
+          </div>
+        </>
       }
-      
-      
-       {nextClicked && <Result fImage={finalImage} isLoading={loading} />}
+      {nextClicked && <Result fImage={finalImage} isLoading={loading} />}
     </>
   );
 }
