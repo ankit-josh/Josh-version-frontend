@@ -1,13 +1,19 @@
-export function Result({ fImage, isLoading }) {
+import { Camera } from "./camera";
+
+export function Result({ fImage, isLoading,imageUrl }) {
+
+  const changeSlide=()=>{
+
+  }
   return (
     <>
       <div className="page-top-section flex-1">
-        {/* <div className="d-flex align-items-center mb-5">
+        <div className="d-flex align-items-center mb-5">
           <div className="img-box border me-4">
-            <img src="" alt="photo"/>
+            <img src={imageUrl} alt="photo"/>
           </div>
-          <span className="fw-bold text-white">Change input photo</span>
-        </div> */}
+          <a href={<Camera/>}><span className="fw-bold text-white" onClick={changeSlide}>Change input photo</span></a>
+        </div>
         <div className="image-upload-box d-flex align-items-center justify-content-center border mb-5 mx-auto overflow-hidden">
           {isLoading && (
             <svg class="spinner" viewBox="0 0 50 50">

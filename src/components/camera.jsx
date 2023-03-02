@@ -13,6 +13,7 @@ export function Camera() {
   const [loading, setLoading] = useState(false);
   const [nextClicked, setNextClicked] = useState(false);
   const [text, setText] = useState("")
+  const [prompt,setPrompt]=useState("")
 
   useEffect(() => {
     console.log("update");
@@ -65,6 +66,7 @@ export function Camera() {
 
     const formDataBody1 = {
       key: API_KEY,
+      prompt:prompt,
       init_image: outputImage,
       width: "512",
       height: "512",
@@ -76,6 +78,8 @@ export function Camera() {
       webhook: null,
       track_id: null,
       samples: "1",
+      // training_type: "null",
+      // max_train_steps: "2000",
       enhance_prompt: "yes",
     };
     try {
@@ -119,16 +123,18 @@ export function Camera() {
               <input type="file" onChange={handleFileUpload} />
               {text === "success" ? "Change photo" : "Upload a photo"}
             </label>
+            <input type="text" onChange={(e)=>setPrompt(e.target.value)}className="form-control p-3 jv-input text-white mb-4" placeholder="Add Prompt here" />
             <button
               className="btn btn-default text-uppercase d-block m-auto"
               onClick={uploadPic}
             >
+            
               Next
             </button>
           </div>
         </>
       }
-      {nextClicked && <Result fImage={finalImage} isLoading={loading} />}
+      {nextClicked && <Result fImage={finalImage} isLoading={loading} imageUrl={url} />}
     </>
   );
 }
